@@ -1,23 +1,40 @@
 #!/usr/bin/env python3
-print("Лаба 2, Задание 2")  
-def describe_person(name, age: int = 30):
-    return f'Имя {name}  \nВозраст {age}'
+print("=" * 40)
+print("ЛАБОРАТОРНАЯ РАБОТА")
+print("=" * 40)
 
+def main():
+    # Ввод данных
+    name = input("Введите ваше имя: ")
+    print(f"Привет, {name}!")
+    
+    # Математика
+    a = float(input("Введите первое число: "))
+    b = float(input("Введите второе число: "))
+    
+    print(f"\nРезультаты:")
+    print(f"{a} + {b} = {a + b}")
+    print(f"{a} - {b} = {a - b}")
+    print(f"{a} * {b} = {a * b}")
+    
+    if b != 0:
+        print(f"{a} / {b} = {a / b:.2f}")
+    else:
+        print(f"{a} / {b} = ошибка (деление на 0)")
+    
+    # Работа со списком
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print(f"\nСписок чисел: {numbers}")
+    print(f"Сумма: {sum(numbers)}")
+    print(f"Максимум: {max(numbers)}")
+    print(f"Минимум: {min(numbers)}")
+    
+    # Цикл
+    print("\nСчет от 1 до 3:")
+    for i in range(1, 4):
+        print(f"  {i}")
+    
+    input("\nНажмите Enter для выхода...")
 
-def is_prime(number):
-        try:
-            number = int(number)
-            return True
-        except ValueError:
-            return False
-
-
-name = input('Введите имя:')
-age = input('Введите возраст:')
-if age:
-    print(describe_person(name, age))
-else:
-    print(describe_person(name))
-
-number = input('Введите значение:')
-print(is_prime(number))
+if __name__ == "__main__":
+    main()
