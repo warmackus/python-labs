@@ -1,40 +1,22 @@
-#!/usr/bin/env python3
-print("=" * 40)
-print("ЛАБОРАТОРНАЯ РАБОТА")
-print("=" * 40)
+class Vehicle:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
 
-def main():
-    # Ввод данных
-    name = input("Введите ваше имя: ")
-    print(f"Привет, {name}!")
-    
-    # Математика
-    a = float(input("Введите первое число: "))
-    b = float(input("Введите второе число: "))
-    
-    print(f"\nРезультаты:")
-    print(f"{a} + {b} = {a + b}")
-    print(f"{a} - {b} = {a - b}")
-    print(f"{a} * {b} = {a * b}")
-    
-    if b != 0:
-        print(f"{a} / {b} = {a / b:.2f}")
-    else:
-        print(f"{a} / {b} = ошибка (деление на 0)")
-    
-    # Работа со списком
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(f"\nСписок чисел: {numbers}")
-    print(f"Сумма: {sum(numbers)}")
-    print(f"Максимум: {max(numbers)}")
-    print(f"Минимум: {min(numbers)}")
-    
-    # Цикл
-    print("\nСчет от 1 до 3:")
-    for i in range(1, 4):
-        print(f"  {i}")
-    
-    input("\nНажмите Enter для выхода...")
+    def get_info(self):
+        return f"Марка: {self.make}, Модель: {self.model}"
 
-if __name__ == "__main__":
-    main()
+
+class Car(Vehicle):
+    def __init__(self, make, model, fuel_type):
+        super().__init__(make, model)
+        self.fuel_type = fuel_type
+
+    def get_info(self):
+        base_info = super().get_info()
+        return f"{base_info}, Тип топлива: {self.fuel_type}"
+
+
+# Пример использования
+car = Car("Toyota", "Camry", "Бензин")
+print(car.get_info())

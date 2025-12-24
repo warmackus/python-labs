@@ -1,40 +1,16 @@
-#!/usr/bin/env python3
-print("=" * 40)
-print("ЛАБОРАТОРНАЯ РАБОТА")
-print("=" * 40)
+from my_package import calculator
+from my_package import text_utils
 
-def main():
-    # Ввод данных
-    name = input("Введите ваше имя: ")
-    print(f"Привет, {name}!")
-    
-    # Математика
-    a = float(input("Введите первое число: "))
-    b = float(input("Введите второе число: "))
-    
-    print(f"\nРезультаты:")
-    print(f"{a} + {b} = {a + b}")
-    print(f"{a} - {b} = {a - b}")
-    print(f"{a} * {b} = {a * b}")
-    
-    if b != 0:
-        print(f"{a} / {b} = {a / b:.2f}")
-    else:
-        print(f"{a} / {b} = ошибка (деление на 0)")
-    
-    # Работа со списком
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(f"\nСписок чисел: {numbers}")
-    print(f"Сумма: {sum(numbers)}")
-    print(f"Максимум: {max(numbers)}")
-    print(f"Минимум: {min(numbers)}")
-    
-    # Цикл
-    print("\nСчет от 1 до 3:")
-    for i in range(1, 4):
-        print(f"  {i}")
-    
-    input("\nНажмите Enter для выхода...")
+# Используем функции из модуля calculator
+print("Калькулятор:")
+print(f"5 + 3 = {calculator.add(5, 3)}")
+print(f"10 - 4 = {calculator.subtract(10, 4)}")
+print(f"6 * 7 = {calculator.multiply(6, 7)}")
+print(f"15 / 3 = {calculator.divide(15, 3)}")
 
-if __name__ == "__main__":
-    main()
+# Используем функции из модуля text_utils
+print("\nРабота с текстом:")
+text = "Hello World"
+print(f"Длина строки: {text_utils.get_string_length(text)}")
+print(f"Верхний регистр: {text_utils.make_uppercase(text)}")
+print(f"Нижний регистр: {text_utils.make_lowercase(text)}")

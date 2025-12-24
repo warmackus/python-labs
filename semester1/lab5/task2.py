@@ -1,40 +1,17 @@
-#!/usr/bin/env python3
-print("=" * 40)
-print("ЛАБОРАТОРНАЯ РАБОТА")
-print("=" * 40)
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
 
-def main():
-    # Ввод данных
-    name = input("Введите ваше имя: ")
-    print(f"Привет, {name}!")
-    
-    # Математика
-    a = float(input("Введите первое число: "))
-    b = float(input("Введите второе число: "))
-    
-    print(f"\nРезультаты:")
-    print(f"{a} + {b} = {a + b}")
-    print(f"{a} - {b} = {a - b}")
-    print(f"{a} * {b} = {a * b}")
-    
-    if b != 0:
-        print(f"{a} / {b} = {a / b:.2f}")
-    else:
-        print(f"{a} / {b} = ошибка (деление на 0)")
-    
-    # Работа со списком
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(f"\nСписок чисел: {numbers}")
-    print(f"Сумма: {sum(numbers)}")
-    print(f"Максимум: {max(numbers)}")
-    print(f"Минимум: {min(numbers)}")
-    
-    # Цикл
-    print("\nСчет от 1 до 3:")
-    for i in range(1, 4):
-        print(f"  {i}")
-    
-    input("\nНажмите Enter для выхода...")
+    def get_radius(self):
+        return self.radius
 
-if __name__ == "__main__":
-    main()
+    def set_radius(self, new_radius):
+        self.radius = new_radius
+
+
+# Пример использования
+circle = Circle(5)
+print("Радиус:", circle.get_radius())
+
+circle.set_radius(10)
+print("Новый радиус:", circle.get_radius())

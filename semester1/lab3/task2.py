@@ -1,40 +1,22 @@
-#!/usr/bin/env python3
-print("=" * 40)
-print("ЛАБОРАТОРНАЯ РАБОТА")
-print("=" * 40)
+def write_to_file(filename, text):
+    with open(filename, 'w') as file:
+        file.write(text)
 
-def main():
-    # Ввод данных
-    name = input("Введите ваше имя: ")
-    print(f"Привет, {name}!")
-    
-    # Математика
-    a = float(input("Введите первое число: "))
-    b = float(input("Введите второе число: "))
-    
-    print(f"\nРезультаты:")
-    print(f"{a} + {b} = {a + b}")
-    print(f"{a} - {b} = {a - b}")
-    print(f"{a} * {b} = {a * b}")
-    
-    if b != 0:
-        print(f"{a} / {b} = {a / b:.2f}")
-    else:
-        print(f"{a} / {b} = ошибка (деление на 0)")
-    
-    # Работа со списком
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(f"\nСписок чисел: {numbers}")
-    print(f"Сумма: {sum(numbers)}")
-    print(f"Максимум: {max(numbers)}")
-    print(f"Минимум: {min(numbers)}")
-    
-    # Цикл
-    print("\nСчет от 1 до 3:")
-    for i in range(1, 4):
-        print(f"  {i}")
-    
-    input("\nНажмите Enter для выхода...")
+def append_to_file(filename, text):
+    with open(filename, 'a') as file:
+        file.write("\n" + text)
 
-if __name__ == "__main__":
-    main()
+def read_user_file(filename):
+    with open(filename, 'r') as file:
+        content = file.read()
+        return content
+
+text = input("Введите текст для записи в файл: ")
+write_to_file('user_input.txt', text)
+
+add_text = input("Введите текст для добавления в файл: ")
+append_to_file('user_input.txt', add_text)
+
+file_content = read_user_file('user_input.txt')
+print("Содержимое файла:")
+print(file_content)
