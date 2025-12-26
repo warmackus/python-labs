@@ -19,3 +19,5 @@ print("Проверка пароля 'qwerty123':", user.check_password("qwerty1
 user.set_password("newpass456")
 print("Проверка пароля 'newpass456':", user.check_password("newpass456"))
 
+print(user.email)
+print(user.__password)
