@@ -27,9 +27,12 @@ class Technician(Employee):
 
 class TechManager(Manager, Technician):
     def __init__(self, name, emp_id, department, specialization):
-        Manager.__init__(self, name, emp_id, department)
-        Technician.__init__(self, name, emp_id, specialization)
-        self.team = []  # список подчиненных
+        Employee.__init__(self, name, emp_id)
+        
+        self.department = department
+        self.specialization = specialization
+        
+        self.team = []  
 
     def add_employee(self, employee):
         self.team.append(employee)
@@ -42,6 +45,7 @@ class TechManager(Manager, Technician):
         for emp in self.team:
             info += f"  - {emp.get_info()}\n"
         return info
+    
 
 
 # Пример использования
@@ -56,4 +60,7 @@ tm.add_employee(mgr1)
 print(emp1.get_info())
 print(mgr1.manage_project())
 print(tech1.perform_maintenance())
+print(tm.manage_project())
+print(tm.perform_maintenance())
 print(tm.get_team_info())
+
